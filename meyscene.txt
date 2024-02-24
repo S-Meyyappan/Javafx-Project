@@ -1,0 +1,368 @@
+package application;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import application.menupage;
+
+public class myscene extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        AnchorPane root = new AnchorPane();
+
+        Label welcomeLabel = new Label("Welcome to Articulate ");
+        welcomeLabel.setLayoutX(41.0);
+        welcomeLabel.setLayoutY(40.0);
+        welcomeLabel.setPrefHeight(28.0);
+        welcomeLabel.setPrefWidth(222.0);
+        welcomeLabel.setFont(new Font("Baskerville Old Face", 23.0));
+
+        Label descriptionLabel = new Label("Are you ready to unlock your potential and learn something new? We're thrilled to have you join our community of passionate learners at Articulate. We offer a wide range of online courses designed to help you achieve your goals, whether you're looking to develop new skills, advance your career, or simply explore your interests.");
+        descriptionLabel.setLayoutX(41.0);
+        descriptionLabel.setLayoutY(68.0);
+        descriptionLabel.setLineSpacing(1.5);
+        descriptionLabel.setPrefHeight(94.0);
+        descriptionLabel.setPrefWidth(790.0);
+        descriptionLabel.setFont(new Font("Book Antiqua", 14.0));
+        descriptionLabel.setWrapText(true);
+
+        Label nameLabel = new Label("Name : *");
+        nameLabel.setLayoutX(41.0);
+        nameLabel.setLayoutY(181.0);
+        nameLabel.setPrefHeight(19.0);
+        nameLabel.setPrefWidth(54.0);
+        nameLabel.setFont(new Font("Times New Roman Italic", 12.800000190734863));
+
+        Label dobLabel = new Label("DOB : *");
+        dobLabel.setLayoutX(41.0);
+        dobLabel.setLayoutY(229.0);
+        dobLabel.setPrefHeight(19.0);
+        dobLabel.setPrefWidth(46.0);
+        dobLabel.setFont(new Font("Times New Roman Italic", 12.800000190734863));
+
+        Label emailLabel = new Label("Email id : *");
+        emailLabel.setLayoutX(24.0);
+        emailLabel.setLayoutY(279.0);
+        emailLabel.setPrefHeight(19.0);
+        emailLabel.setPrefWidth(65.0);
+        emailLabel.setFont(new Font("Times New Roman Italic", 12.800000190734863));
+
+        Label phoneLabel = new Label("Phone : ");
+        phoneLabel.setLayoutX(37.0);
+        phoneLabel.setLayoutY(328.0);
+        phoneLabel.setPrefHeight(19.0);
+        phoneLabel.setPrefWidth(54.0);
+        phoneLabel.setFont(new Font("Times New Roman Italic", 12.800000190734863));
+
+        TextField usernameText = new TextField();
+        usernameText.setId("usernametext");
+        usernameText.setLayoutX(101.0);
+        usernameText.setLayoutY(177.0);
+        usernameText.setPrefHeight(27.0);
+        usernameText.setPrefWidth(267.0);
+        usernameText.setPromptText("Fullname with Initial");
+
+        DatePicker dobPicker = new DatePicker();
+        dobPicker.setLayoutX(101.0);
+        dobPicker.setLayoutY(225.0);
+        dobPicker.setPrefHeight(27.0);
+        dobPicker.setPrefWidth(267.0);
+        dobPicker.setPromptText("DD/MM/YYYY");
+
+        TextField emailText = new TextField();
+        emailText.setId("emailtext");
+        emailText.setLayoutX(101.0);
+        emailText.setLayoutY(275.0);
+        emailText.setPrefHeight(27.0);
+        emailText.setPrefWidth(267.0);
+        emailText.setPromptText("Email id");
+
+        TextField phoneText = new TextField();
+        phoneText.setId("phonetext");
+        phoneText.setLayoutX(101.0);
+        phoneText.setLayoutY(324.0);
+        phoneText.setPrefHeight(27.0);
+        phoneText.setPrefWidth(267.0);
+        phoneText.setPromptText("Enter without country code");
+
+        TextField universityText = new TextField();
+        universityText.setLayoutX(520.0);
+        universityText.setLayoutY(324.0);
+        universityText.setPrefHeight(27.0);
+        universityText.setPrefWidth(267.0);
+        universityText.setPromptText("University name");
+
+        Label universityLabel = new Label("University : ");
+        universityLabel.setLayoutX(439.0);
+        universityLabel.setLayoutY(328.0);
+        universityLabel.setPrefHeight(19.0);
+        universityLabel.setPrefWidth(74.0);
+        universityLabel.setFont(new Font("Times New Roman Italic", 12.800000190734863));
+
+        Label domainLabel = new Label("Choose your domain  *");
+        domainLabel.setLayoutX(30.0);
+        domainLabel.setLayoutY(376.0);
+        domainLabel.setPrefHeight(28.0);
+        domainLabel.setPrefWidth(222.0);
+        domainLabel.setFont(new Font("Times New Roman Italic", 16.0));
+
+        CheckBox aiCheckBox = new CheckBox("Artificial Intelligence");
+        aiCheckBox.setId("artificialintelligence");
+        aiCheckBox.setLayoutX(55.0);
+        aiCheckBox.setLayoutY(463.0);
+        aiCheckBox.setMnemonicParsing(false);
+        aiCheckBox.setPrefHeight(19.0);
+        aiCheckBox.setPrefWidth(152.0);
+        aiCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        aiCheckBox.setCursor(Cursor.HAND);
+
+        CheckBox fullstackDevelopmentCheckBox = new CheckBox("FullStack Development");
+        fullstackDevelopmentCheckBox.setId("fullstackdevelopment");
+        fullstackDevelopmentCheckBox.setLayoutX(57.0);
+        fullstackDevelopmentCheckBox.setLayoutY(498.0);
+        fullstackDevelopmentCheckBox.setMnemonicParsing(false);
+        fullstackDevelopmentCheckBox.setPrefHeight(19.0);
+        fullstackDevelopmentCheckBox.setPrefWidth(169.0);
+        fullstackDevelopmentCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        fullstackDevelopmentCheckBox.setCursor(Cursor.HAND);
+
+        CheckBox cybersecurityCheckBox = new CheckBox("Cyber Security");
+        cybersecurityCheckBox.setId("cybersecurity");
+        cybersecurityCheckBox.setLayoutX(55.0);
+        cybersecurityCheckBox.setLayoutY(533.0);
+        cybersecurityCheckBox.setMnemonicParsing(false);
+        cybersecurityCheckBox.setPrefHeight(19.0);
+        cybersecurityCheckBox.setPrefWidth(152.0);
+        cybersecurityCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        cybersecurityCheckBox.setCursor(Cursor.HAND);
+
+        CheckBox appDevelopmentCheckBox = new CheckBox("App Development");
+        appDevelopmentCheckBox.setId("appdevelopment");
+        appDevelopmentCheckBox.setLayoutX(55.0);
+        appDevelopmentCheckBox.setLayoutY(424.0);
+        appDevelopmentCheckBox.setMnemonicParsing(false);
+        appDevelopmentCheckBox.setPrefHeight(19.0);
+        appDevelopmentCheckBox.setPrefWidth(152.0);
+        appDevelopmentCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        appDevelopmentCheckBox.setCursor(Cursor.HAND);
+
+        CheckBox cloudComputingCheckBox = new CheckBox("Cloud Computing");
+        cloudComputingCheckBox.setId("cloudcomputing");
+        cloudComputingCheckBox.setLayoutX(263.0);
+        cloudComputingCheckBox.setLayoutY(428.0);
+        cloudComputingCheckBox.setMnemonicParsing(false);
+        cloudComputingCheckBox.setPrefHeight(19.0);
+        cloudComputingCheckBox.setPrefWidth(152.0);
+        cloudComputingCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        cloudComputingCheckBox.setCursor(Cursor.HAND);
+
+        CheckBox internetOfThingsCheckBox = new CheckBox("Internet of Things");
+        internetOfThingsCheckBox.setId("internetofthings");
+        internetOfThingsCheckBox.setLayoutX(263.0);
+        internetOfThingsCheckBox.setLayoutY(463.0);
+        internetOfThingsCheckBox.setMnemonicParsing(false);
+        internetOfThingsCheckBox.setPrefHeight(19.0);
+        internetOfThingsCheckBox.setPrefWidth(152.0);
+        internetOfThingsCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        internetOfThingsCheckBox.setCursor(Cursor.HAND);
+
+        CheckBox uiUxDesigningCheckBox = new CheckBox("Ui / Ux Designing");
+        uiUxDesigningCheckBox.setId("uiux");
+        uiUxDesigningCheckBox.setLayoutX(263.0);
+        uiUxDesigningCheckBox.setLayoutY(498.0);
+        uiUxDesigningCheckBox.setMnemonicParsing(false);
+        uiUxDesigningCheckBox.setPrefHeight(19.0);
+        uiUxDesigningCheckBox.setPrefWidth(152.0);
+        uiUxDesigningCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        uiUxDesigningCheckBox.setCursor(Cursor.HAND);
+
+        CheckBox digitalMarketingCheckBox = new CheckBox("Digital Marketing");
+        digitalMarketingCheckBox.setId("digitalmarketing");
+        digitalMarketingCheckBox.setLayoutX(263.0);
+        digitalMarketingCheckBox.setLayoutY(424.0);
+        digitalMarketingCheckBox.setMnemonicParsing(false);
+        digitalMarketingCheckBox.setPrefHeight(19.0);
+        digitalMarketingCheckBox.setPrefWidth(152.0);
+        digitalMarketingCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        digitalMarketingCheckBox.setCursor(Cursor.HAND);
+
+        CheckBox otherCheckBox = new CheckBox("Other");
+        digitalMarketingCheckBox.setId("other");
+        digitalMarketingCheckBox.setLayoutX(263.0);
+        digitalMarketingCheckBox.setLayoutY(533.0);
+        digitalMarketingCheckBox.setMnemonicParsing(false);
+        digitalMarketingCheckBox.setPrefHeight(19.0);
+        digitalMarketingCheckBox.setPrefWidth(152.0);
+        digitalMarketingCheckBox.setFont(new Font("Segoe UI", 12.800000190734863));
+        digitalMarketingCheckBox.setCursor(Cursor.HAND);
+        
+        Label genderLabel = new Label("Gender : *");
+        genderLabel.setLayoutX(441.0);
+        genderLabel.setLayoutY(181.0);
+        genderLabel.setPrefHeight(19.0);
+        genderLabel.setPrefWidth(66.0);
+        genderLabel.setFont(new Font("Times New Roman Italic", 12.800000190734863));
+
+        RadioButton maleRadioButton = new RadioButton("Male");
+        maleRadioButton.setLayoutX(520.0);
+        maleRadioButton.setLayoutY(181.0);
+        maleRadioButton.setMnemonicParsing(false);
+        maleRadioButton.setCursor(Cursor.HAND);
+
+        RadioButton femaleRadioButton = new RadioButton("Female");
+        femaleRadioButton.setLayoutX(596.0);
+        femaleRadioButton.setLayoutY(181.0);
+        femaleRadioButton.setMnemonicParsing(false);
+        femaleRadioButton.setPrefHeight(19.0);
+        femaleRadioButton.setPrefWidth(74.0);
+        femaleRadioButton.setCursor(Cursor.HAND);
+
+        RadioButton otherGenderRadioButton = new RadioButton("Other");
+        otherGenderRadioButton.setLayoutX(685.0);
+        otherGenderRadioButton.setLayoutY(181.0);
+        otherGenderRadioButton.setMnemonicParsing(false);
+        otherGenderRadioButton.setCursor(Cursor.HAND);
+
+        Label countryLabel = new Label("Country : *");
+        countryLabel.setLayoutX(441.0);
+        countryLabel.setLayoutY(229.0);
+        countryLabel.setPrefHeight(19.0);
+        countryLabel.setPrefWidth(66.0);
+        countryLabel.setFont(new Font("Times New Roman Italic", 12.800000190734863));
+
+        Label passwordLabel = new Label("Password : *");
+        passwordLabel.setLayoutX(439.0);
+        passwordLabel.setLayoutY(279.0);
+        passwordLabel.setPrefHeight(19.0);
+        passwordLabel.setPrefWidth(74.0);
+        passwordLabel.setFont(new Font("Times New Roman Italic", 12.800000190734863));
+
+        PasswordField passwordText = new PasswordField();
+        passwordText.setId("passwordtext");
+        passwordText.setLayoutX(520.0);
+        passwordText.setLayoutY(275.0);
+        passwordText.setPrefHeight(27.0);
+        passwordText.setPrefWidth(267.0);
+        passwordText.setPromptText("Enter a strong password");
+
+        RadioButton termsCheckBox = new RadioButton("I hereby accept to all the terms and conditions applied");
+        termsCheckBox.setId("termsandcondition");
+        termsCheckBox.setLayoutX(68.0);
+        termsCheckBox.setLayoutY(590.0);
+        termsCheckBox.setMnemonicParsing(false);
+        termsCheckBox.setFont(new Font("SansSerif Bold Italic", 12.800000190734863));
+        termsCheckBox.setCursor(Cursor.OPEN_HAND);
+
+        Label scholarshipLabel = new Label("Why are you applying for this scholarship course ?");
+        scholarshipLabel.setLayoutX(476.0);
+        scholarshipLabel.setLayoutY(410.0);
+        scholarshipLabel.setPrefHeight(28.0);
+        scholarshipLabel.setPrefWidth(354.0);
+        scholarshipLabel.setFont(new Font("Times New Roman Italic", 16.0));
+
+        TextArea scholarshipTextArea = new TextArea();
+        scholarshipTextArea.setLayoutX(480.0);
+        scholarshipTextArea.setLayoutY(449.0);
+        scholarshipTextArea.setPrefHeight(130.0);
+        scholarshipTextArea.setPrefWidth(318.0);
+        scholarshipTextArea.setPromptText("Write within 250 words");
+
+        Button registerButton = new Button("REGISTER");
+        registerButton.setId("registerbutton");
+        registerButton.setLayoutX(583.0);
+        registerButton.setLayoutY(604.0);
+        registerButton.setMnemonicParsing(false);
+        registerButton.setPrefHeight(38.0);
+        registerButton.setPrefWidth(112.0);
+        registerButton.setFont(new Font("Georgia", 15.0));
+        registerButton.setCursor(Cursor.HAND);
+        registerButton.setStyle("-fx-background-color:lightblue;-fx-text-fill:black");
+
+        TextField countryText = new TextField();
+        countryText.setId("countrytext");
+        countryText.setLayoutX(516.0);
+        countryText.setLayoutY(225.0);
+        countryText.setPrefHeight(27.0);
+        countryText.setPrefWidth(267.0);
+        countryText.setPromptText("Country Name");
+
+        root.getChildren().addAll(
+                welcomeLabel, descriptionLabel, nameLabel, dobLabel, emailLabel, phoneLabel,
+                usernameText, dobPicker, emailText, phoneText, universityText, universityLabel,
+                domainLabel, aiCheckBox,fullstackDevelopmentCheckBox,cybersecurityCheckBox,
+                appDevelopmentCheckBox, cloudComputingCheckBox,genderLabel, maleRadioButton, 
+                internetOfThingsCheckBox,uiUxDesigningCheckBox, femaleRadioButton, digitalMarketingCheckBox,
+                otherGenderRadioButton,countryLabel, passwordLabel, passwordText, termsCheckBox,
+                scholarshipLabel,scholarshipTextArea, registerButton,countryText
+        );
+
+        root.setPadding(new Insets(5.0, 5.0, 5.0, 5.0));
+                
+        Scene scene = new Scene(root, 872, 676);
+        scene.setFill(Color.BLACK);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Registration Form");
+        primaryStage.show();
+        registerButton.setOnAction(new EventHandler<ActionEvent>()
+        {
+
+			@Override
+			public void handle(ActionEvent event) {
+				if(usernameText.getText().isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, root.getScene().getWindow(), "Form Error!", "Please enter your name");
+                    return;
+                }
+				if(emailText.getText().isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, root.getScene().getWindow(), "Form Error!", "Please enter your email");
+                    return;
+                }
+				if(passwordText.getText().isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, root.getScene().getWindow(), "Form Error!", "Please enter password");
+                    return;
+                }
+				if(countryText.getText().isEmpty()) {
+                    showAlert(Alert.AlertType.ERROR, root.getScene().getWindow(), "Form Error!", "Please enter your country");
+                    return;
+                }
+				if(!aiCheckBox.isSelected()&&!digitalMarketingCheckBox.isSelected()&&!fullstackDevelopmentCheckBox.isSelected()&&!cybersecurityCheckBox.isSelected()&&!appDevelopmentCheckBox.isSelected()&&!cloudComputingCheckBox.isSelected()&&!uiUxDesigningCheckBox.isSelected())
+				{
+					showAlert(Alert.AlertType.WARNING, root.getScene().getWindow(), "Form Error!", "Please choose a domain to proceed");
+                    return;
+				}
+				if(!termsCheckBox.isSelected())
+				{
+					showAlert(Alert.AlertType.WARNING, root.getScene().getWindow(), "Form Error!", "Please accept the terms and condition");
+                    return;
+				}
+					menupage m=new menupage();
+					m.start(primaryStage);
+			}
+
+			private void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+					Alert alert = new Alert(alertType);
+					alert.setTitle(title);
+					alert.setHeaderText(null);
+					alert.setContentText(message);
+					alert.initOwner(owner);
+					alert.show();
+			}
+        	
+        		});
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+

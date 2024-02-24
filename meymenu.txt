@@ -1,0 +1,134 @@
+package application;
+
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+//import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+//import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+//import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
+public class menupage extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        	// Create a menu bar    	 
+    		MenuBar menuBar = new MenuBar();
+
+            // Create menus
+            Menu fileMenu = new Menu("HOME");
+            Menu editMenu = new Menu("ABOUT");
+            Menu helpMenu = new Menu("COURSE");
+            Menu help = new Menu("PROFILE");
+            
+
+            // Create menu items
+            MenuItem newItem = new MenuItem("Explore");      
+            MenuItem saveItem = new MenuItem("Practice");
+            MenuItem exitItem = new MenuItem("Test");
+
+            MenuItem aboutItem = new MenuItem("CLOUD COMPUTING");
+            MenuItem app = new MenuItem("APP DEVELOPMENT");
+            MenuItem htn = new MenuItem("CYBER SECURITY");
+
+            MenuItem c = new MenuItem("VIEW PROFILE");
+            MenuItem A = new MenuItem("LOGOUT");
+            
+            // Add menu items to menus
+            fileMenu.getItems().addAll(newItem, saveItem, exitItem);
+      
+            helpMenu.getItems().addAll(aboutItem,app,htn);
+            help.getItems().addAll(c,A);
+            // Add menus to the menu bar
+            menuBar.getMenus().addAll(fileMenu, editMenu, helpMenu,help);
+
+        // Create layout and add menu bar
+    	GridPane root = new GridPane();
+        root.add(menuBar, 0, 0);
+        
+       
+        Label content=new Label("Welcome to Articulate Learning Courses: Your Gateway to the Future of Technology!\r\n"
+        		+ "\nAre you ready to unlock your potential and shape the future with cutting-edge skills in Artificial Intelligence ,\nMachine Learning, Cybersecurity, and Cloud Computing? Look no further than Articulate Learning Courses!\r\n"
+        		+ "\r\n"
+        		+ "Here, we ignite passionate minds like yours with immersive, interactive learning experiences tailored to \nequip you for the ever-evolving tech landscape. Whether you're a seasoned professional seeking to upskill or \na curious beginner taking your first steps, we have a curated course path designed to empower your success");
+        content.setFont(new Font("Times New Roman", 19.2));
+        content.setPadding(new Insets(20, 25, 10, 20));
+        root.add(content, 0,5);
+        
+        Label des1=new Label("Dive into the fascinating world of AI:\r\n"
+        		+ "\r\n"
+        		+ "Master the fundamentals: Learn the core concepts of Machine Learning, Deep Learning, and Natural Language Processing.\r\n"
+        		+ "Build intelligent applications: Craft real-world solutions with projects in computer vision, robotics, and predictive analytics.\r\n"
+        		+ "Become an AI leader: Hone your expertise with advanced courses in reinforcement learning, generative models, and responsible AI practices.");
+        des1.setFont(new Font("Times New Roman", 17));
+        des1.setPadding(new Insets(20, 25, 10, 20));
+        root.add(des1, 0,10);
+        
+        Hyperlink h1 = new Hyperlink("Artificial Intelligence");
+        Hyperlink h2 = new Hyperlink("Cloud Computing");
+        Hyperlink h3 = new Hyperlink("Cyber Security");
+        h1.setPadding(new Insets(5, 5, 5, 5));
+        h2.setPadding(new Insets(5, 5, 5, 5));
+        h3.setPadding(new Insets(5, 5, 5, 5));
+        root.add(h1, 0, 12);
+        root.add(h2, 0, 24);
+        root.add(h3, 0, 36);
+
+        h1.setOnAction((new EventHandler<ActionEvent>() {
+
+		    @Override
+		    public void handle(ActionEvent event) {
+		        getHostServices().showDocument("\"C:\\Users\\siva\\Documents\\ai.txt\"");
+		    }
+		})); 
+        
+        h2.setOnAction((new EventHandler<ActionEvent>() {
+
+		    @Override
+		    public void handle(ActionEvent event) {
+		        getHostServices().showDocument("\"C:\\Users\\siva\\Documents\\ai.txt\"");
+		    }
+		})); 
+        
+        h3.setOnAction((new EventHandler<ActionEvent>() {
+
+		    @Override
+		    public void handle(ActionEvent event) {
+		        getHostServices().showDocument("\"C:\\Users\\siva\\Documents\\ai.txt\"");
+		    }
+		})); 
+        
+        Image icon=new Image("logo.png");
+		primaryStage.getIcons().add(icon);
+        Scene scene = new Scene(root, 900,600);
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("Articulate Home Page");
+        primaryStage.show();
+        
+        
+        A.setOnAction(event -> {
+        	primaryStage.close();        
+        	});
+       
+    	}
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+
